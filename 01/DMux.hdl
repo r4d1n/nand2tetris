@@ -15,11 +15,8 @@ CHIP DMux {
 
     PARTS:
     Not(in=sel, out=notSel);
-    Or(a=in, b=in, out=inValue);
-    // only case where either output is true
-    And(a=inValue, b=notSel, out=atrue);
-    And(a=inValue, b=sel, out=btrue);
-    And(a=notSel, b=atrue, out=a);
-    Nand(a=in, b=sel, out=argsNand);
-    Not(in=argsNand, out=b);
+
+    And(a=in, b=notSel, out=a);
+
+    And(a=in, b=sel, out=b); 
 }
